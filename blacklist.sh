@@ -68,7 +68,7 @@ fi
 # check if we are on OpenWRT
 if [ "$(which uci 2>/dev/null)" ]; then
     # we're on OpenWRT
-    wan_iface=pppoe-wan
+    wan_iface=$(uci get network.wan.ifname)
     IN_OPT="-i $wan_iface"
     INPUT=input_rule
     FORWARD=forwarding_rule
